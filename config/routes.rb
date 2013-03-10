@@ -3,8 +3,9 @@ Myblog::Application.routes.draw do
     resources :comments
   end
 
-
   get "home/index"
+  get "home/about"
+
   root :to => 'home#index'
 
   # The priority is based upon order of creation:
