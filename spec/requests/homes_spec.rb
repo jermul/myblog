@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe "Home" do
 
+let (:base_title) { "Jer1000 Blog" }
+
   describe "Index" do
 
     it "should have the h1 'Blog'" do
@@ -12,7 +14,7 @@ describe "Home" do
     it "should have the title 'Home'" do 
       visit 'root'
       page.should have_selector('title',
-      					:text => "Jer1000 Blog | Home")
+      					:text => "#{base_title} | Home")
     end
   end
 
@@ -26,7 +28,7 @@ describe "Home" do
   	it "should have the title 'About'" do 
       visit '/home/about'
       page.should have_selector('title',
-      					:text => "Jer1000 Blog | About")
+      					:text => "#{base_title} | About")
     end
   end
 end
