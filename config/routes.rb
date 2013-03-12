@@ -1,12 +1,13 @@
 Myblog::Application.routes.draw do
+  get "users/new"
+
   resources :posts do
     resources :comments
   end
 
-  get "home/index"
-  get "home/about"
-
-  root :to => 'home#index'
+  match '/about',     to: 'home#about'
+  match '/signup',    to: 'users#new'
+  root                to: 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
