@@ -1,7 +1,8 @@
 <h2> Search </h2>
 <div class="center">
   <%= form_tag posts_path, method: 'get' do %>
-  <%= text_field_tag :search, params[:search], class: "span3", placeholder: "Search for a blog post" %>
+  <%= text_field_tag :search, params[:search], class: "span3", 
+  					 placeholder: "Search for a blog post by title or content" %>
   <% end %>
 </div>
 
