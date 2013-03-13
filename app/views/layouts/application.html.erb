@@ -10,8 +10,31 @@
   <body>
   	<%= render 'layouts/header' %>
   	<div class="container">
-  	  <%= yield %>
-  	  <%= render 'layouts/footer' %>
-  	</div>
+      <%= yield %>
+      <div class="row">
+        <div class="span9">
+          <h1> Blog Posts </h1>
+          <h2>Placeholder!</h2>
+          <p>
+            O  Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
+          </p>
+          <h2>Excepteur sint occaecat cupidatat non proident</h2>
+          <p>
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat.
+          </p>
+          <h2>Sunt in culpa qui officia deserunt mollit anim id est laborum</h2>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse 
+            cillum dolore eu fugiat nulla pariatur.
+          </p>
+        </div>
+        <div class="span3">
+          <%= render 'layouts/sidebar' %>
+        </div>
+  	  </div>
+    </div>
+    <%= render 'layouts/footer' %>  
   </body>
 </html>
