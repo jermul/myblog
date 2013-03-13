@@ -1,11 +1,10 @@
 <h2> Search </h2>
+<div class="center">
+  <%= form_tag posts_path, method: 'get' do %>
+  <%= text_field_tag :search, params[:search], class: "span3", placeholder: "Search for a blog post" %>
+  <% end %>
+</div>
 
-<%= form_tag posts_path, method: 'get' do %>
-  <p>
-  	<%= text_field_tag :search, params[:search] %>
-  	<%= submit_tag "Search!", name: nil %>
-  </p>
-<% end %>
 <h2> Categories </h2>
 <li> Web Development </li>
 <li> X-TREME SPORTS! </li>

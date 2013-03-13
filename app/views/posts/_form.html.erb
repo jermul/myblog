@@ -1,4 +1,3 @@
-
 <% @post.tags.build %>
 <%= form_for(@post) do |post_form| %>
   <% if @post.errors.any? %>
@@ -12,21 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= post_form.label :name %><br />
-    <%= post_form.text_field :name %>
+  <div class="row">
+    <div class="span6 offset3">
+
+      <%= post_form.label :name %><br />
+      <%= post_form.text_field :name %>
+  
+      <%= post_form.label :title %><br />
+      <%= post_form.text_field :title %>
+
+      <%= post_form.label :content %><br />
+      <%= post_form.text_area :content %>
+
+      <%= render :partial => 'tags/form', :locals => {:form => post_form} %>
+      <div class="actions">
+        <%= post_form.submit "Submit", class: "btn btn-large btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= post_form.label :title %><br />
-    <%= post_form.text_field :title %>
-  </div>
-  <div class="field">
-    <%= post_form.label :content %><br />
-    <%= post_form.text_area :content %>
-  </div>
-  <h2>Tags</h2>
-  <%= render :partial => 'tags/form', :locals => {:form => post_form} %>
-  <div class="actions">
-    <%= post_form.submit %>
-  </div>
-<% end %>
