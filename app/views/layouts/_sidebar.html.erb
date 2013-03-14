@@ -1,35 +1,51 @@
 <h2> Search </h2>
-<div class="center form-searh form-inline">
+<div class="input-append">
   <%= form_tag posts_path, method: 'get' do %>
-  <%= text_field_tag :search, params[:search], class: "span2", 
-  					 placeholder: "Search for a blog post" %>
-  <button type="submit" class="btn">Go!</button>
+    <%= text_field_tag :search, params[:search], class: "input-large", 
+    				   							id: "appendedInputButtons", 
+    				   							placeholder: "Search for a blog post" %>
+    <button class="btn" type="btn">Go!</button>
   <% end %>
 </div>
 <h2>About Me</h2>
 <p>
   <small>I apologize as I am aware that currently a lot of the links 
-  and buttons do not work on my blog site. That is because I am 
-  developing the site as I learn Ruby on Rails, in hopes that 
-  eventually my blog site will get to production level. Thank you 
-  for sticking with me during this process, and maybe it will be 
+  and buttons do not work on my blog site (particularly in this sidebar). 
+  That is because I am developing the site as I learn Ruby on Rails, in 
+  hopes that eventually my blog site will get to production level. Thank 
+  you for sticking with me during this process, and maybe it will be 
   interesting to you to see how this website develops over time.</small>
 </p>
-<h2> Categories </h2>
+
+<h2>Vote</h2> 
+<p>what should I implement for my website next?</p>
+<label class="radio">
+  <input type="radio" name="optionsRadios" id="optionRadios1" value="option1" checked> 
+  Private Messaging
+</label>
+<label class="radio">
+  <input type="radio" name="optionsRadios" id="optionRadios2" value="option2"> 
+  Up/Down Voting
+</label>
+<label class="radio">
+  <input type="radio" name="optionsRadios" id="optionRadios3" value="option3"> 
+  Private Messaging
+</label>
+<br />
+<button type="submit" class="btn btn-mini">Submit</button>
+
+<h2>Categories</h2>
 <ul>
   <li>Web Development</li>
   <li>X-TREME Sports</li>
   <li>Basketball</li>
   <li>Miscellaneous</li>
 </ul>
-<h2> Recent Posts </h2>
-<li> links of </li>
-<li> recent posts </li>
-<h2> Recent Comments </h2>
-<li> links of recent </li>
-<li> comments </li>
-<h2> Archives </h2>
-<li> March </li>
-<li> February </li>
-<li> January </li>
-<li> December </li>
+
+<h2>Archives</h2>
+<ul>
+  <li>March</li>
+  <li>February</li>
+  <li>January</li>
+  <li>December</li>
+</ul>
