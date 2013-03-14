@@ -6,12 +6,11 @@ Myblog::Application.routes.draw do
     resources :comments
   end
 
-  match '/about',     to: 'home#about'
   match '/signup',    to: 'users#new'
   match '/signin',    to: 'sessions#new'
   match '/signout',   to: 'sessions#destroy'
   
-  root                to: 'home#index'
+  root                to: 'posts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,28 +1,17 @@
-<% provide(:title, 'Posts') %>
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.name %></td>
-    <td><%= post.title %></td>
-    <td><%= post.content %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <h1></u><%= link_to post.title, post %></u></h1>
+  <p>
+    <%= post.content %>
+    <div class="pull-right">
+      <%= link_to 'Edit', edit_post_path(post), class: "btn btn-mini btn-success" %>
+      <%= link_to 'Destroy', post, class: "btn btn-mini btn-danger", method: :delete, 
+                                          data: { confirm: 'Are you sure?' } %>
+    </div>
+  </p>
+  <br />
+  <br />
+  <br />
+  <div class="center">
+    <%= link_to 'New Blog Post', new_post_path, class: "btn btn-large" %>
+  </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Post', new_post_path %>

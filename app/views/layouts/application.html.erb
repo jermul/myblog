@@ -13,25 +13,13 @@
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
       <% end %>
-      <%= yield %>
+      <div class="center hero-unit">
+        <h1>Welcome to Jerm Disorder</h1>
+        <h2>the ongoing blog of an aspiring developer</h2>
+      </div>
       <div class="row">
         <div class="span9">
-          <h1> Blog Posts </h1>
-          <h2>Placeholder!</h2>
-          <p>
-            O  Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
-          </p>
-          <h2>Excepteur sint occaecat cupidatat non proident</h2>
-          <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat.
-          </p>
-          <h2>Sunt in culpa qui officia deserunt mollit anim id est laborum</h2>
-          <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse 
-            cillum dolore eu fugiat nulla pariatur.
-          </p>
+          <%= yield %>
         </div>
         <div class="span3">
           <%= render 'layouts/sidebar' %>

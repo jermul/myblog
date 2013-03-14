@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  belongs_to :user
   attr_accessible :content, :name, :title, :tags_attributes
 
   validates :name,  presence: true
