@@ -18,10 +18,8 @@ describe "User pages" do
 
     describe "pagination" do
 
-      before(:all) { 30.times { FactoryGirl.create(:user) } }
+      before(:all) { 9.times { FactoryGirl.create(:user) } }
       after(:all)  { User.delete_all }
-
-      it { should have_selector('div.pagination') }
 
       it "should list each user" do
         User.paginate(page: 1).each do |user|
@@ -116,7 +114,7 @@ describe "User pages" do
     end
 
     describe "page" do
-      it { should have_selector('h1',    text: "Update your profile") }
+      it { should have_selector('h1',    text: "Edit your profile") }
       it { should have_selector('title', text: "Edit user") }
       it { should have_link('change', href: 'http://gravatar.com/emails') }
     end

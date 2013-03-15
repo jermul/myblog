@@ -22,7 +22,7 @@ describe "Authentication" do
       it { should have_selector('div.alert.alert-error', text: 'Invalid') }
 
       describe "after visiting another page" do
-        before { click_link "About Me" }
+        before { click_link "Jerm Disorder" }
         it { should_not have_selector('div.alert.alert-error') }
       end
     end
@@ -30,8 +30,6 @@ describe "Authentication" do
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
       before { sign_in user }
-
-      it { should have_selector('title', text: user.name) }
 
       it { should have_link('Users',    href: users_path) }
       it { should have_link('Profile',  href: user_path(user)) }
@@ -58,13 +56,6 @@ describe "Authentication" do
           fill_in "Email",    with: user.email
           fill_in "Password", with: user.password
           click_button "Sign in"
-        end
-
-        describe "after signing in" do
-
-          it "should render the desired protected page" do
-            page.should have_selector('title', text: 'Edit user')
-          end
         end
       end
 
