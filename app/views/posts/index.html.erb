@@ -4,17 +4,10 @@
   <% end %>
 </div><br />
 
-<% @posts.each do |post| %>
-  <div id="eachpost">
-    <h1><%= link_to post.title, post %></h1>
-  </div>
-  <p>
-    <%= truncate(strip_tags(post.content), length: 380) %>
-    <% if admin? %>
-      <div class="pull-right">
-        <%= link_to 'Edit', edit_post_path(post) %> |
-        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div><br />
-    <% end %>
-  </p>
-<% end %>
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @posts %>
+</ul>
+
+<%= will_paginate %>

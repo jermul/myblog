@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.search(params[:search], params[:page])
   end
 
   def edit
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] ="User destroyed."
+    flash[:success] ="User destroyed"
     redirect_to users_url
   end
 
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     def signed_in_user
       unless signed_in?
         store_location
-        redirect_to signin_url, notice: "Please sign in."
+        redirect_to signin_url, notice: "Please sign in"
       end
     end
 

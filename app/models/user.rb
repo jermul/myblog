@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  def self.search(search, page)
+    paginate per_page: 10, page: page, order: "name",
+             conditions: ['name ILIKE?', "%#{search}%"]
+  end
+
   private
 
     def create_remember_token

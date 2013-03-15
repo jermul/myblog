@@ -2,30 +2,15 @@ class PostsController < ApplicationController
   before_filter :authorize, except: [:index, :show]
 
   def index
-    @posts = Post.search(params[:search]).order("posts.created_at DESC")
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @posts }
-    end
+    @posts = Post.search(params[:search], params[:page])
   end
 
   def show
     @post = Post.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
   end
 
   def new
     @post = Post.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @post }
-    end
   end
 
   def edit
@@ -34,39 +19,27 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:post])
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to posts_url, notice: 'Post created.' }
-        format.json { render json: @post, status: :created, location: @post }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.save
+      flash[:success] = "Post created"
+      redirect_to posts_url
+    else
+      render 'new'
     end
   end
 
   def update
     @post = Post.find(params[:id])
-
-    respond_to do |format|
-      if @post.update_attributes(params[:post])
-        format.html { redirect_to @post, notice: 'Post updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.update_attributes(params[:post])
+      flash[:success] = "Post updated"
+      redirect_to posts_url
+    else
+      render 'edit'
     end
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post destroyed.' }
-      format.json { head :no_content }
-    end
+    Post.find(params[:id]).destroy
+    flash[:success] = "Post destroyed"
+    redirect_to posts_url
   end
 end
