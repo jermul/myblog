@@ -10,12 +10,14 @@
   <body>
   	<%= render 'layouts/header' %>
   	<div class="container">
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-      <% end %>
       <div class="center hero-unit">
         <h1>Welcome to Jerm Disorder</h1>
         <h2>the ongoing blog of an aspiring developer</h2>
+      </div>
+      <div class="center">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+        <% end %>
       </div>
       <div class="row">
         <div class="span9">

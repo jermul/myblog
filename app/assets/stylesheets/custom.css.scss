@@ -47,6 +47,12 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  a { 
+    color: $gray;
+    &:hover {
+      color: $grayDarker;
+    }
+  }
 }
 
 h2 {
