@@ -1,11 +1,18 @@
-<span class="content"><%= comment.content %></span>
-<span class="timestamp">
-  Posted by <%= link_to comment.user.name, '#' %>
-  <%= time_ago_in_words(comment.created_at) %>
-  ago.
-</span>
-<% if admin? || current_user?(comment.user) %>
-| <%= link_to 'Delete comment', [comment.post, comment],
-  			   confirm: 'Are you sure?',
-  			   method: :delete %>
-  			   <% end %>
+
+<ul class="index">
+  <li>
+    <%= gravatar_for comment.user %>
+   	<span class="content"><%= comment.content %></span>
+	<span class="timestamp">
+  	Posted by <%= link_to comment.user.name, comment.user %>
+  	<%= time_ago_in_words(comment.created_at) %>
+  	ago.
+	<div class="pull-right">
+	<% if admin? || current_user?(comment.user) %>
+	<%= link_to 'Delete comment', [comment.post, comment],
+  			   						confirm: 'Are you sure?',
+  			   						method: :delete %>
+  	<% end %>
+	</div>
+  </li>
+</ul>

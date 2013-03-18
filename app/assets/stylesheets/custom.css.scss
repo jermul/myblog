@@ -192,7 +192,7 @@ input {
   @extend .error;
 }
 
-/* Post & User index */
+/* Comments, Posts, & Users index */
 
 .index {
   list-style: none;
@@ -200,10 +200,6 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
-    &:last-child {
-      border-bottom: 1px solid $grayLighter;
-    }
   }
 }
 
