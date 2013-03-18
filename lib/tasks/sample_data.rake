@@ -31,7 +31,7 @@ namespace :db do
     end
 
 #create 50 comments for admin
-    users = User.all(limit: 1)
+    users = User.all(limit: 2)
     50.times do
       content = Faker::Lorem.sentence(5)
       users.each { |user| user.comments.create!(content: content, post_id: 1) }

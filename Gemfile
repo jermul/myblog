@@ -9,10 +9,15 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'jquery-rails', '2.0.2'
 gem 'pg', '0.12.2'
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
-  # gem 'guard-rspec', '1.2.1'
-  gem 'guard-spork', '1.2.0'  
+  #gem 'guard-rspec', '1.2.1'
+  #gem 'guard-spork', '1.2.0'  
   gem 'spork', '0.9.2'
 end
 
