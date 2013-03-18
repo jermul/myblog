@@ -33,7 +33,7 @@ describe Comment do
   end
 
   describe "with content that is too long" do
-    before { @comment.content = "a" * 401 }
+    before { @comment.content = "a" * 2501 }
     it { should_not be_valid }
   end
 end
