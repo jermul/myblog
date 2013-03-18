@@ -1,14 +1,10 @@
 <div class="row">
   <div class="span6 offset1">
     <%= form_for([@post, @post.comments.build]) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+  	<%= f.text_area :content, rows: 4, placeholder: "Up to 400 chars..." %>
 
-  	<%= f.label "your name" %><br />
-  	<%= f.text_field :commenter %>
- 
-  	<%= f.label "comment" %><br />
-  	<%= f.text_area :body, rows: 4 %>
-
-  	<%= f.submit "submit comment", class: "btn btn-primary" %>
+  	<%= f.submit "submit", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

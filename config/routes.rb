@@ -1,6 +1,8 @@
 Myblog::Application.routes.draw do
   
-  resources :users
+  resources :users do
+    resources :comments
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :posts do
     resources :comments

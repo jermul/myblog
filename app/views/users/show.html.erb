@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span3">
     <section>
       <h1>
         <%= gravatar_for @user %>
@@ -8,4 +8,13 @@
       </h1>
     </section>
   </aside>
+  <div class="span6">
+    <% if @user.comments.any? %>
+      <h3>Comments (<%= @user.comments.count %>)</h3>
+      <ol class="comments">
+        <%= render @comments %>
+      </ol>
+      <%= will_paginate @comments %>
+    <% end %>
+  </div>
 </div>

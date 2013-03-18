@@ -1,8 +1,12 @@
 class CommentsController < ApplicationController
+  before_filter :signed_in_user, only: [:create, :destroy]
 
   def create
   	@post = Post.find(params[:post_id])
-  	@comment = @post.comments.create(params[:comment])
+  	@comment = @post.comments.build(params[:comment])
+    @comment.user = current_user
+    @comment.save
+    flash[:success] = "Comment created" if @comment.save
   	redirect_to post_path(@post)
   end
 
