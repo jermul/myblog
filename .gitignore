@@ -18,4 +18,4 @@
 /config/database.yml
 
 # Ignore secret token
-/initializers/secret_token.rb
+config/initializers/secret_token.rb
