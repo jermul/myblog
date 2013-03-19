@@ -1,5 +1,5 @@
 ### run rake db:populate for the default single admin 
-### delete "=begin" on line 14 for sample data
+### delete "=begin" on line 15 and "=end" line 41 for sample data
 
 namespace :db do
   desc "Fill database with sample data"
@@ -37,7 +37,6 @@ namespace :db do
     50.times do
       content = Faker::Lorem.sentence(5)
       users.each { |user| user.comments.create!(content: content, post_id: 1) }
-=end
     end
-  end 
+=end  end 
 end 

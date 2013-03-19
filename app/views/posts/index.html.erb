@@ -5,5 +5,5 @@
 </div><br />
 
 <%= render @posts %>
-
-<%= will_paginate %>
+<%= page_entries_info @posts %>
+<%= will_paginate @posts, page_links: false %>

@@ -5,10 +5,12 @@
   Posted on <%= (@post.created_at).strftime "%B %d, %Y" %>
 </span>
 <p class="lead"><%= @post.content %></p>
-<p><%= join_tags(@post) %></p>
+<p> Tags: <%= raw join_tags(@post) %></p>
 <div class="span8">
   <h2>Comments (<%= @post.comments.count %>)</h2>
-  <%= render @post.comments %>
+  <%= render @comments %>
+  <%= page_entries_info @comments %>
+  <%= will_paginate @comments, page_links: false %>
 </div>
 <% if signed_in? %>
   <div class="span8">
@@ -17,9 +19,11 @@
   </div>
 <br />
 <% else %>
-<h2>
-  Want to leave a comment?
-  <%= link_to "Sign in", signin_path %> or
-  <%= link_to "create an account", signup_path %>.
-</h2>
+<div class="span8">
+  <h2>
+    Want to leave a comment?
+    <%= link_to "Sign in", signin_path %> or
+    <%= link_to "create an account", signup_path %>.
+  </h2>
+</div>
 <% end %>

@@ -2,8 +2,9 @@
 <span class="timestamp">
   Posted on <%= (post.created_at).strftime "%B %d, %Y" %>
 </span>
+<p><%= truncate(strip_tags(post.content), length: 350) %></p>
 <p>
-  <%= truncate(strip_tags(post.content), length: 350) %>
+  Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
   <% if admin? %>
     <div class="pull-right">
       <%= link_to 'Edit', edit_post_path(post) %> |

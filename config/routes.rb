@@ -7,7 +7,7 @@ Myblog::Application.routes.draw do
   resources :posts do
     resources :comments
   end
-
+  get 'tags/:tag',    to: 'posts#index', as: :tag
   match '/signup',    to: 'users#new'
   match '/signin',    to: 'sessions#new'
   match '/signout',   to: 'sessions#destroy'

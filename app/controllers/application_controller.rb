@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   helper_method :admin?
+  helper :all
 
   private
 

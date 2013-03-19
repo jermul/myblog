@@ -2,12 +2,17 @@ class PostsController < ApplicationController
   before_filter :authorize, except: [:index, :show]
 
   def index
-    @posts = Post.search(params[:search], params[:page])
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag]).paginate(page: params[:page])
+    else
+      @posts = Post.search(params[:search], params[:page])
+    end
   end
 
   def show
     @post = Post.find(params[:id])
     @comment = current_user.comments.build if signed_in?
+    @comments = @post.comments.paginate(page: params[:page], per_page: 50)
   end
 
   def new
