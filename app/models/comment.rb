@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :content, :post_id ### Uncomment to run rake db:populate
+  attr_accessible :content#, :post_id ### Uncomment to run rake db:populate
 
   belongs_to :user
   belongs_to :post

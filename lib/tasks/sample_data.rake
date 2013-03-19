@@ -1,17 +1,19 @@
-### MAKE SURE TO UNCOMMENT ATTR-ACCESSIBLE FOR post_id IN COMMENTS MODEL TO RUN THIS RAKE COMMAND
+### run rake db:populate for the default single admin 
+### delete "=begin" on line 14 for sample data
 
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
 
-# create an admin user    
+# creates an admin user    
     admin = User.create!(name: "Admin",
                          email: "admin@example.com",
                          password: "admin123",
                          password_confirmation: "admin123")
     admin.toggle! (:admin)
 
-#create 30 blog posts hopefully by admin
+=begin ### MAKE SURE TO UNCOMMENT ATTR-ACCESSIBLE FOR post_id IN COMMENTS MODEL TO RUN LAST COMMAND
+#creates 30 blog posts hopefully by admin
     user = admin
     30.times do |i|
       title   = Faker::Lorem.sentence
@@ -19,7 +21,7 @@ namespace :db do
       Post.create!(title: title, content: content)
     end
 
-#create 99 more users
+#creates 99 additional users
     99.times do |n|
       name  = Faker::Name.name
       email = Faker::Internet.email
