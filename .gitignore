@@ -15,10 +15,10 @@
 /tmp
 
 # Ignore config/database.yml file.
-/config/database.yml
+config/database.yml
 
 # Ignore secret token file.
-/config/initializers/secret_token.rb
+config/initializers/secret_token.rb
 
 # Ignore omniauth file.
-/config/initializers/omniauth.rb
+config/initializers/omniauth.rb
