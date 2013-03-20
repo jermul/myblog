@@ -15,9 +15,7 @@
         <h2>the ongoing blog of an aspiring developer</h2>
       </div>
       <div class="center">
-        <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-        <% end %>
+        <%= render 'layouts/notice' %> 
       </div>
       <div class="row">
         <div class="span9">
