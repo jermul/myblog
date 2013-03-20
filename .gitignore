@@ -14,8 +14,11 @@
 /log/*.log
 /tmp
 
-# Ignore config/database.yml.
+# Ignore config/database.yml file.
 /config/database.yml
 
-# Ignore secret token
-config/initializers/secret_token.rb
+# Ignore secret token file.
+/config/initializers/secret_token.rb
+
+# Ignore omniauth file.
+/config/initializers/omniauth.rb

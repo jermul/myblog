@@ -1,5 +1,7 @@
 Myblog::Application.routes.draw do
   
+  resources :authentications
+
   resources :users do
     resources :comments
   end
@@ -8,9 +10,12 @@ Myblog::Application.routes.draw do
     resources :comments
   end
   get 'tags/:tag',    to: 'posts#index', as: :tag
+
   match '/signup',    to: 'users#new'
   match '/signin',    to: 'sessions#new'
   match '/signout',   to: 'sessions#destroy'
+
+  match '/auth/:provider/callback', to: 'authentications#create'
   
   root                to: 'posts#index'
 

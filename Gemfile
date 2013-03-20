@@ -9,10 +9,12 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'jquery-rails', '2.0.2'
 gem 'pg', '0.12.2'
 gem 'acts-as-taggable-on', '~> 2.3.1'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'nifty-generators'
 end
 
 group :development, :test do
@@ -39,3 +41,5 @@ group :test do
   # gem 'rb-fsevent', '0.9.1', :require => false
   # gem 'growl', '1.0.3'
 end
+
+gem "mocha", :group => :test
