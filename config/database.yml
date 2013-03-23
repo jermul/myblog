@@ -10,8 +10,8 @@ development:
   host:     localhost  
   pool: 5
   port: 5432
-  username: secret
-  password: secret
+  username: susan49kao
+  password: 
 
 
 # Warning: The database defined as "test" will be erased and
@@ -24,8 +24,8 @@ test: &test
   host:     localhost
   pool: 5
   port: 5432
-  username: secret
-  password: secret
+  username: susan49kao
+  password: 
 
 cucumber:
   <<: *test

@@ -1,7 +1,5 @@
 Myblog::Application.routes.draw do
   
-  resources :authentications
-
   resources :users do
     resources :comments
   end
