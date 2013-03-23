@@ -3,27 +3,11 @@
 <h5><%= @post.title %></h5>
 <span class="timestamp">
   Posted on <%= (@post.created_at).strftime "%B %d, %Y" %>
+  | Tags: <%= raw join_tags(@post) %>
 </span>
 <p class="lead"><%= @post.content %></p>
-<p> Tags: <%= raw join_tags(@post) %></p>
 <div class="span8">
-  <h2>Comments (<%= @post.comments.count %>)</h2>
-  <%= render @comments %>
-  <%= page_entries_info @comments %>
-  <%= will_paginate @comments, page_links: false %>
-</div>
-<% if signed_in? %>
-  <div class="span8">
-    <h2>Add a comment:</h2>
-    <%= render "comments/form" %>
+  <div id = "disqus_thread">
+    <%= disqus_thread.html_safe %>
   </div>
-<br />
-<% else %>
-<div class="span8">
-  <h2>
-    Want to leave a comment?
-    <%= link_to "Sign in", signin_path %> or
-    <%= link_to "create an account", signup_path %>.
-  </h2>
 </div>
-<% end %>

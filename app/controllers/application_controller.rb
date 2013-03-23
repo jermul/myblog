@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   helper_method :admin?
   helper :all
 
+  Disqus::defaults[:account] = 'jermdisorder'
+  Disqus::defaults[:developer] = true # if you want to test it on the localhost
+  Disqus::defaults[:hide_mods] = true
+  Disqus::defaults[:show_powered_by] = false
+  
   private
 
     def authorize

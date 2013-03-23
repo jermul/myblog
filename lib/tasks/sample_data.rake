@@ -12,7 +12,7 @@ namespace :db do
                          password_confirmation: "admin123")
     admin.toggle! (:admin)
 
-=begin ### MAKE SURE TO UNCOMMENT ATTR-ACCESSIBLE FOR post_id IN COMMENTS MODEL TO RUN LAST COMMAND
+### MAKE SURE TO UNCOMMENT ATTR-ACCESSIBLE FOR post_id IN COMMENTS MODEL TO RUN LAST COMMAND
 #creates 30 blog posts hopefully by admin
     user = admin
     30.times do |i|
@@ -37,7 +37,6 @@ namespace :db do
     50.times do
       content = Faker::Lorem.sentence(5)
       users.each { |user| user.comments.create!(content: content, post_id: 1) }
-=end
-#    end
+    end
   end 
 end 
